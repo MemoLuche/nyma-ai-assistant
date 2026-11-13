@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // 🔮 GEMINI (con API Key)
-const GEMINI_API_KEY = "REDACTED";
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`;
 
 app.post('/gemini', async (req, res) => {
@@ -31,7 +31,7 @@ app.post('/gemini', async (req, res) => {
 });
 
 // 🔊 TEXT-TO-SPEECH con ElevenLabs
-const ELEVEN_KEY = "REDACTED";
+const ELEVEN_KEY = process.env.ELEVENLABS_API_KEY;
 const VOICE_ID = 'EXAVITQu4vr4xnSDxMaL'; // voz por defecto
 
 app.post('/tts', async (req, res) => {
@@ -58,7 +58,7 @@ app.post('/tts', async (req, res) => {
 });
 
 // 🎙️ SPEECH-TO-TEXT con AssemblyAI
-const ASSEMBLY_KEY = "REDACTED";
+const ASSEMBLY_KEY = process.env.ASSEMBLYAI_API_KEY;
 
 app.post('/stt', upload.single('audio'), async (req, res) => {
   try {

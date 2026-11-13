@@ -34,3 +34,8 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# local secrets and uploads
+.env
+backend/.env
+backend/uploads/
